@@ -76,7 +76,7 @@ public class Sighting {
       return con.createQuery(sql).executeAndFetch(Sighting.class);
     }
   }
-
+//Exception
   public static Sighting find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM sightings where id=:id";
