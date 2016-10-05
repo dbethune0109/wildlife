@@ -70,7 +70,7 @@ public class EndangeredAnimalTest{
     testEndangeredAnimal2.save();
     assertEquals(EndangeredAnimal.find(testEndangeredAnimal2.getId()), testEndangeredAnimal2);
   }
-
+//Exception
   @Test(expected=IndexOutOfBoundsException.class)
   public void find_throwsExceptionIfAnimalNotFound() {
     EndangeredAnimal.find(1);
