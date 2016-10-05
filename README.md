@@ -4,6 +4,14 @@ David Bethune
 dbethune1970@gmail.com
 dbethune0109@ github
 
+
+##Setup##
+In command windows type : psql wildlife_tracker<wildlife_tracker.sql
+then gradle run.
+ to run tests: \c wildlife_tracker
+ create database wildlife_tracker_test with template wildlife_tracker
+ gradle test:
+
 ##specs##
 Wildlife Tracker
 The Forest Service is considering a proposal from a timber company to clearcut a nearby forest of Douglas Fir. Before this proposal may be approved, they must complete an environmental impact study. You have been asked to build an application that allows Rangers to track wildlife sightings in the area.
