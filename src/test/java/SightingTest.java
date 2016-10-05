@@ -89,14 +89,6 @@ public class SightingTest{
     assertEquals(rightNow.getHours(), savedDate.getHours());
   }
 
-  // @Test
-  // public void getFormattedDate_returnsFormattedDate_Sighting() {
-  //   testSighting.save();
-  //   Sighting savedSighting = Sighting.find(testSighting.getId());
-  //   Timestamp rightNow = new Timestamp(new Date().getTime());
-  //   assertEquals(DateFormat.getDateTimeInstance().format(rightNow), savedSighting.getFormattedDate());
-  // }
-
   @Test
   public void delete_deletesEntryInDatabase_0(){
     testSighting.save();
