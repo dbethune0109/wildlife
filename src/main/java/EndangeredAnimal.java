@@ -48,7 +48,7 @@ public class EndangeredAnimal extends Animal {
         .executeAndFetch(EndangeredAnimal.class);
     }
   }
-
+//Exception
   public static EndangeredAnimal find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM animals where id=:id";
