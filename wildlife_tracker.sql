@@ -2,27 +2,22 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6rc1
--- Dumped by pg_dump version 9.6rc1
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
-SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -;
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -;
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -35,7 +30,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: animals; Type: TABLE; Schema: public;
+-- Name: animals; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
 --
 
 CREATE TABLE animals (
@@ -47,8 +42,11 @@ CREATE TABLE animals (
     species character varying
 );
 
+
+ALTER TABLE animals OWNER TO "Guest";
+
 --
--- Name: animals_id_seq; Type: SEQUENCE; Schema: public;
+-- Name: animals_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
 --
 
 CREATE SEQUENCE animals_id_seq
@@ -59,15 +57,17 @@ CREATE SEQUENCE animals_id_seq
     CACHE 1;
 
 
+ALTER TABLE animals_id_seq OWNER TO "Guest";
+
 --
--- Name: animals_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: animals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
 --
 
 ALTER SEQUENCE animals_id_seq OWNED BY animals.id;
 
 
 --
--- Name: animals_sightings; Type: TABLE; Schema: public;
+-- Name: animals_sightings; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
 --
 
 CREATE TABLE animals_sightings (
@@ -77,9 +77,10 @@ CREATE TABLE animals_sightings (
 );
 
 
+ALTER TABLE animals_sightings OWNER TO "Guest";
 
 --
--- Name: animals_sightings_id_seq; Type: SEQUENCE; Schema: public;
+-- Name: animals_sightings_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
 --
 
 CREATE SEQUENCE animals_sightings_id_seq
@@ -90,16 +91,17 @@ CREATE SEQUENCE animals_sightings_id_seq
     CACHE 1;
 
 
+ALTER TABLE animals_sightings_id_seq OWNER TO "Guest";
 
 --
--- Name: animals_sightings_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: animals_sightings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
 --
 
 ALTER SEQUENCE animals_sightings_id_seq OWNED BY animals_sightings.id;
 
 
 --
--- Name: sightings; Type: TABLE; Schema: public;
+-- Name: sightings; Type: TABLE; Schema: public; Owner: Guest; Tablespace: 
 --
 
 CREATE TABLE sightings (
@@ -110,9 +112,10 @@ CREATE TABLE sightings (
 );
 
 
+ALTER TABLE sightings OWNER TO "Guest";
 
 --
--- Name: sightings_id_seq; Type: SEQUENCE; Schema: public;
+-- Name: sightings_id_seq; Type: SEQUENCE; Schema: public; Owner: Guest
 --
 
 CREATE SEQUENCE sightings_id_seq
@@ -123,36 +126,38 @@ CREATE SEQUENCE sightings_id_seq
     CACHE 1;
 
 
+ALTER TABLE sightings_id_seq OWNER TO "Guest";
+
 --
--- Name: sightings_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
+-- Name: sightings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Guest
 --
 
 ALTER SEQUENCE sightings_id_seq OWNED BY sightings.id;
 
 
 --
--- Name: animals id; Type: DEFAULT; Schema: public;
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
 --
 
 ALTER TABLE ONLY animals ALTER COLUMN id SET DEFAULT nextval('animals_id_seq'::regclass);
 
 
 --
--- Name: animals_sightings id; Type: DEFAULT; Schema: public;
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
 --
 
 ALTER TABLE ONLY animals_sightings ALTER COLUMN id SET DEFAULT nextval('animals_sightings_id_seq'::regclass);
 
 
 --
--- Name: sightings id; Type: DEFAULT; Schema: public;
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Guest
 --
 
 ALTER TABLE ONLY sightings ALTER COLUMN id SET DEFAULT nextval('sightings_id_seq'::regclass);
 
 
 --
--- Data for Name: animals; Type: TABLE DATA; Schema: public;
+-- Data for Name: animals; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
 COPY animals (id, name, health, age, endangered, species) FROM stdin;
@@ -160,14 +165,14 @@ COPY animals (id, name, health, age, endangered, species) FROM stdin;
 
 
 --
--- Name: animals_id_seq; Type: SEQUENCE SET; Schema: public;
+-- Name: animals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
 SELECT pg_catalog.setval('animals_id_seq', 8, true);
 
 
 --
--- Data for Name: animals_sightings; Type: TABLE DATA; Schema: public;
+-- Data for Name: animals_sightings; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
 COPY animals_sightings (id, animal_id, sighting_id) FROM stdin;
@@ -175,13 +180,14 @@ COPY animals_sightings (id, animal_id, sighting_id) FROM stdin;
 
 
 --
--- Name: animals_sightings_id_seq; Type: SEQUENCE SET; Schema: public;
+-- Name: animals_sightings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
+--
 
 SELECT pg_catalog.setval('animals_sightings_id_seq', 6, true);
 
 
 --
--- Data for Name: sightings; Type: TABLE DATA; Schema: public;
+-- Data for Name: sightings; Type: TABLE DATA; Schema: public; Owner: Guest
 --
 
 COPY sightings (id, location, rangername, date_sighted) FROM stdin;
@@ -189,14 +195,14 @@ COPY sightings (id, location, rangername, date_sighted) FROM stdin;
 
 
 --
--- Name: sightings_id_seq; Type: SEQUENCE SET; Schema: public;
+-- Name: sightings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
 SELECT pg_catalog.setval('sightings_id_seq', 8, true);
 
 
 --
--- Name: animals animals_pkey; Type: CONSTRAINT; Schema: public;
+-- Name: animals_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
 --
 
 ALTER TABLE ONLY animals
@@ -204,7 +210,7 @@ ALTER TABLE ONLY animals
 
 
 --
--- Name: animals_sightings animals_sightings_pkey; Type: CONSTRAINT; Schema: public; 
+-- Name: animals_sightings_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
 --
 
 ALTER TABLE ONLY animals_sightings
@@ -212,7 +218,7 @@ ALTER TABLE ONLY animals_sightings
 
 
 --
--- Name: sightings sightings_pkey; Type: CONSTRAINT; Schema: public;
+-- Name: sightings_pkey; Type: CONSTRAINT; Schema: public; Owner: Guest; Tablespace: 
 --
 
 ALTER TABLE ONLY sightings
@@ -220,5 +226,16 @@ ALTER TABLE ONLY sightings
 
 
 --
+-- Name: public; Type: ACL; Schema: -; Owner: epicodus
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM epicodus;
+GRANT ALL ON SCHEMA public TO epicodus;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
 -- PostgreSQL database dump complete
 --
+
